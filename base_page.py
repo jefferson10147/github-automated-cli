@@ -3,9 +3,18 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 
-class BasePage:
-    def __init__(self, driver):
-        self.driver = driver
+from settings import Config
 
-    def open_page(self, url):
-        self.driver.get(url)
+
+class BasePage:
+    driver_path = Config.get_driver_path()
+
+    def __init__(self, url):
+        service = Service(self.driver_path)
+        options = webdriver.ChromeOptions()
+        self.driver = webdriver.Chrome(service=service, options=options)
+        self.driver.implicitly_wait(10)
+        self.main_page = url
+
+    def open_main_page(self):
+        self.driver.get(self.main_page)
