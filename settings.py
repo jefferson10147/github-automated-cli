@@ -7,4 +7,8 @@ class Config:
     General configuration
     """
     # username = config('USERNAME')
-    pass
+    driver_path = './chromedriver'
+
+    @staticmethod
+    def get_driver_path(self):
+        return self.driver_path
