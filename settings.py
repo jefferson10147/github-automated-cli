@@ -6,7 +6,8 @@ class Config:
     """
     General configuration
     """
-    # username = config('USERNAME')
+    username = config('USERNAME')
+    password = config('PASSWORD')
     driver_path = './chromedriver'
 
     @staticmethod
