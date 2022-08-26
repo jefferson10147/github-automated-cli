@@ -18,3 +18,9 @@ class BasePage:
 
     def open_main_page(self):
         self.driver.get(self.main_page)
+
+    def find_element(self, *locator):
+        return self.driver.find_element(*locator)
+
+    def click(self, *locator):
+        self.driver.find_element(*locator).click()
