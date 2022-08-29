@@ -21,3 +21,8 @@ class BasePage:
 
     def click(self, *locator):
         self.driver.find_element(*locator).click()
+
+    def input_text(self, text, *locator):
+        element = self.driver.find_element(*locator)
+        element.clear()
+        element.send_keys(text)

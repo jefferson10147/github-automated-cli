@@ -6,6 +6,7 @@ from settings import Config
 class GitHubBot(BasePage):
     main_page_url = 'https://github.com/'
     signin_btn = (By.CSS_SELECTOR ,'a[href="/login"]')
+    user_field = (By.ID, 'login_field')
 
 
     def __init__(self):
@@ -16,3 +17,6 @@ class GitHubBot(BasePage):
 
     def click_on_sigin_btn(self):
         self.click(*self.signin_btn)
+
+    def enter_email(self):
+        self.input_text(self.username, self.user_field)
