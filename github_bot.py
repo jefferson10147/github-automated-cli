@@ -18,5 +18,5 @@ class GitHubBot(BasePage):
     def click_on_sigin_btn(self):
         self.click(*self.signin_btn)
 
-    def enter_email(self):
+    def enter_user(self):
         self.input_text(self.username, self.user_field)
