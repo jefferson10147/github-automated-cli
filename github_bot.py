@@ -7,6 +7,7 @@ class GitHubBot(BasePage):
     main_page_url = 'https://github.com/'
     signin_btn = (By.CSS_SELECTOR ,'a[href="/login"]')
     user_field = (By.ID, 'login_field')
+    password_field = (By.ID, 'password')
 
 
     def __init__(self):
@@ -20,3 +21,6 @@ class GitHubBot(BasePage):
 
     def enter_user(self):
         self.input_text(self.username, self.user_field)
+
+    def enter_password(self):
+        self.input_text(self.password, self.password_field)
