@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from base_page import BasePage
 
+from settings import Config
 
 class GitHubBot(BasePage):
     main_page_url = 'https://github.com/'
@@ -8,7 +9,10 @@ class GitHubBot(BasePage):
 
 
     def __init__(self):
-        super().__init__(self.main_page_url)
+        self.username = Config.username
+        self.password = Config.password
+        self.driver_path = Config.get_driver_path()
+        super().__init__(self.driver_path ,self.main_page_url)
 
     def click_on_sigin_btn(self):
         self.click(*self.signin_btn)
