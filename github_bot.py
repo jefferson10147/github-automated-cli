@@ -5,6 +5,8 @@ from settings import Config
 
 class GitHubBot(BasePage):
     main_page_url = 'https://github.com/'
+
+    #locators
     signin_btn = (By.CSS_SELECTOR ,'a[href="/login"]')
     user_field = (By.ID, 'login_field')
     password_field = (By.ID, 'password')
