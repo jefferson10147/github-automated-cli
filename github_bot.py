@@ -20,7 +20,7 @@ class GitHubBot(BasePage):
         super().__init__(self.driver_path ,self.main_page_url)
 
     def click_on_sigin_btn(self):
-        self.click(*self.signin_btn)
+        self.wait_for_element_click(*self.signin_btn)
 
     def enter_user(self):
         self.input_text(self.username, *self.user_field)
@@ -29,4 +29,4 @@ class GitHubBot(BasePage):
         self.input_text(self.password, *self.password_field)
 
     def submit_sigin_data(self):
-        self.click(*self.sigin_submit)
+        self.wait_for_element_click(*self.sigin_submit)
