@@ -1,7 +1,9 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.common.keys import Keys
 
 
 class BasePage:
@@ -11,6 +13,7 @@ class BasePage:
         options = webdriver.ChromeOptions()
         self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.implicitly_wait(10)
+        self.wait = WebDriverWait(self.driver, 10)
         self.main_page = url
 
     def open_main_page(self):
@@ -26,3 +29,7 @@ class BasePage:
         element = self.driver.find_element(*locator)
         element.clear()
         element.send_keys(text)
+
+    def wait_for_element_click(self, *locator):
+        element = self.wait.until(EC.element_to_be_clickable(locator))
+        element.click()
