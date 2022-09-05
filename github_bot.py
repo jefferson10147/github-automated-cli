@@ -12,6 +12,7 @@ class GitHubBot(BasePage):
     password_field = (By.ID, 'password')
     sigin_submit = (By.CSS_SELECTOR, '.btn.btn-primary.btn-block.js-sign-in-button')
     more_options_btn = (By.CSS_SELECTOR, '.details-overlay.details-reset summary.Header-link svg')
+    new_repository_dropdown_btn = (By.CSS_SELECTOR, '.dropdown-menu.dropdown-menu-sw a[href="/new"]')
 
 
     def __init__(self):
@@ -34,3 +35,6 @@ class GitHubBot(BasePage):
 
     def click_on_more_options_btn(self):
         self.wait_for_element_click(*self.more_options_btn)
+
+    def click_on_new_repository(self):
+        self.wait_for_element_click(*self.new_repository_dropdown_btn)
