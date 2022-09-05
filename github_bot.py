@@ -11,6 +11,7 @@ class GitHubBot(BasePage):
     user_field = (By.ID, 'login_field')
     password_field = (By.ID, 'password')
     sigin_submit = (By.CSS_SELECTOR, '.btn.btn-primary.btn-block.js-sign-in-button')
+    more_options_btn = (By.CSS_SELECTOR, '.details-overlay.details-reset summary.Header-link svg')
 
 
     def __init__(self):
@@ -30,3 +31,6 @@ class GitHubBot(BasePage):
 
     def submit_sigin_data(self):
         self.wait_for_element_click(*self.sigin_submit)
+
+    def click_on_more_options_btn(self):
+        self.wait_for_element_click(*self.more_options_btn)
