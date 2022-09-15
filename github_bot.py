@@ -17,6 +17,7 @@ class GitHubBot(BasePage):
     repository_description = (By.ID, 'repository_description')
     private_repository_option = (By.ID, 'repository_visibility_private')
     public_respository_option = (By.ID, 'repository_visibility_public')
+    create_repository = (By.CSS_SELECTOR, '.btn-primary.btn')
 
 
     def __init__(self):
@@ -54,3 +55,6 @@ class GitHubBot(BasePage):
 
     def set_public_repository(self):
         self.wait_for_element_click(*self.public_respository_option)
+
+    def create_repository(self):
+        self.wait_for_element_click(*self.create_repository)
