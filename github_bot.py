@@ -13,6 +13,7 @@ class GitHubBot(BasePage):
     sigin_submit = (By.CSS_SELECTOR, '.btn.btn-primary.btn-block.js-sign-in-button')
     more_options_btn = (By.CSS_SELECTOR, '.details-overlay.details-reset summary.Header-link svg')
     new_repository_dropdown_btn = (By.CSS_SELECTOR, '.dropdown-menu.dropdown-menu-sw a[href="/new"]')
+    input_repository_name = (By.ID, 'repository_name')
 
 
     def __init__(self):
