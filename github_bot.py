@@ -14,6 +14,7 @@ class GitHubBot(BasePage):
     more_options_btn = (By.CSS_SELECTOR, '.details-overlay.details-reset summary.Header-link svg')
     new_repository_dropdown_btn = (By.CSS_SELECTOR, '.dropdown-menu.dropdown-menu-sw a[href="/new"]')
     input_repository_name = (By.ID, 'repository_name')
+    repository_description = (By.ID, 'repository_description')
 
 
     def __init__(self):
@@ -39,3 +40,9 @@ class GitHubBot(BasePage):
 
     def click_on_new_repository(self):
         self.wait_for_element_click(*self.new_repository_dropdown_btn)
+
+    def enter_respository_name(self, repository_name):
+        self.input_text(repository_name, *self.input_repository_name)
+
+    def enter_repository_description(self, description):
+        self.input_text(description, *self.repository_description)
