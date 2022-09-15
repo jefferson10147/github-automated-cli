@@ -24,7 +24,7 @@ class GitHubBot(BasePage):
         self.username = Config.username
         self.password = Config.password
         self.driver_path = Config.get_driver_path()
-        super().__init__(self.driver_path ,self.main_page_url)
+        super().__init__(self.driver_path, self.main_page_url)
 
     def click_on_sigin_btn(self):
         self.wait_for_element_click(*self.signin_btn)
