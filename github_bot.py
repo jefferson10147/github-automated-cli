@@ -15,6 +15,8 @@ class GitHubBot(BasePage):
     new_repository_dropdown_btn = (By.CSS_SELECTOR, '.dropdown-menu.dropdown-menu-sw a[href="/new"]')
     input_repository_name = (By.ID, 'repository_name')
     repository_description = (By.ID, 'repository_description')
+    private_repository_option = (By.ID, 'repository_visibility_private')
+    public_respository_option = (By.ID, 'repository_visibility_public')
 
 
     def __init__(self):
@@ -46,3 +48,9 @@ class GitHubBot(BasePage):
 
     def enter_repository_description(self, description):
         self.input_text(description, *self.repository_description)
+
+    def set_private_repository(self):
+        self.wait_for_element_click(*self.private_repository_option)
+
+    def set_public_repository(self):
+        self.wait_for_element_click(*self.public_respository_option)
