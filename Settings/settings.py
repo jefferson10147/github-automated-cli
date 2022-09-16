@@ -8,7 +8,3 @@ class Config:
     username = config('USERNAME')
     password = config('PASSWORD')
     driver_path = './chromedriver'
-
-    @staticmethod
-    def get_driver_path(self):
-        return self.driver_path
