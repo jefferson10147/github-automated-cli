@@ -8,8 +8,6 @@ from Tests.bot_tests import create_repository_test
 
 def set_up_local_folder(repository_name):
     parent_dir = Config.local_path
-    
-    # Path
     path = os.path.join(parent_dir, repository_name)
     os.mkdir(path)
     print(f'Directory {path} created')
@@ -33,6 +31,9 @@ def main():
         repository_name = args.name if args.name else 'test'
         bot = GitHubBot()
         bot.create_repository(repository_name)
+        
+        if args.local: 
+            set_up_local_folder()
 
 
 if __name__ == '__main__':
