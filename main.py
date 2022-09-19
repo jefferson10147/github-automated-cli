@@ -1,5 +1,6 @@
 import argparse
-from re import A
+
+from Bot.github_bot import GitHubBot
 from Tests.bot_tests import create_repository_test
 
 
@@ -13,7 +14,13 @@ def cli():
 
 
 def main():
-    create_repository_test()
+    # create_repository_test()
+    args = cli()
+
+    if args.create:
+        repository_name = args.name if args.name else 'test'
+        bot = GitHubBot()
+        bot.create_repository(repository_name)
 
 
 if __name__ == '__main__':
