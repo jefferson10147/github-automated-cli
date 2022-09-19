@@ -58,3 +58,19 @@ class GitHubBot(BasePage):
 
     def create_repository(self):
         self.wait_for_element_click(*self.create_repository_btn)
+
+    def start_repository(self, repository_name):
+        print(f'Creating repository called {repository_name}...')
+        self.open_main_page()
+        self.maximize_window()
+        self.click_on_sigin_btn()
+        self.enter_user()
+        self.enter_password()
+        self.submit_sigin_data()
+        self.click_on_more_options_btn()
+        self.click_on_new_repository()
+        self.enter_respository_name(repository_name)
+        self.set_private_repository()
+        self.create_repository()
+        self.end_test()
+        print('The repository has been created :D')
