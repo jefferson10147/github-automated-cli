@@ -8,3 +8,4 @@ class Config:
     username = config('USERNAME')
     password = config('PASSWORD')
     driver_path = './chromedriver'
+    local_path = '/Users/jeffersonmontilla/Documents'
