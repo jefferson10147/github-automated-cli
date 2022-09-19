@@ -33,7 +33,7 @@ def main():
         bot.create_repository(repository_name)
         
         if args.local: 
-            set_up_local_folder()
+            set_up_local_folder(repository_name)
 
 
 if __name__ == '__main__':
