@@ -6,7 +6,7 @@ from Settings.settings import Config
 from Tests.bot_tests import create_repository_test
 
 
-def set_up_local_folder(repository_name):
+def set_up_local_folder(repository_name: str) -> None:
     parent_dir = Config.local_path
     path = os.path.join(parent_dir, repository_name)
     os.mkdir(path)
@@ -15,12 +15,14 @@ def set_up_local_folder(repository_name):
 
 def cli():
     parser = argparse.ArgumentParser(description='GitHub CLI tool')
+    
     parser.add_argument(
         '-c', '--create', action='store_true', help='Creates a repository')
     parser.add_argument('-n', '--name', help='Repository name')
     parser.add_argument(
         '-p', '--private', action='store_true', help='Flag to make the repository private')
-    parser.add_argument('-l', '--local', action='store_true', help='Flag to set up the local repository')
+    parser.add_argument(
+        '-l', '--local', action='store_true', help='Flag to set up the local repository')
 
 
 def main():
