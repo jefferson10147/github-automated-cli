@@ -7,6 +7,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage:
+    """
+    Selenium base class with all primitive configuration and actions
+    """
 
     def __init__(self, driver_path, url):
         service = Service(driver_path)

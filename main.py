@@ -7,6 +7,13 @@ from Tests.bot_tests import create_repository_test
 
 
 def set_up_repository(path: str, repository_name: str) -> None:
+    """
+    Initialized the git repository into the local folder.
+
+    Args:
+        path (str): The path of the local folder.
+        repository_name (str): The name of the repository on GitHub
+    """
     initial_git_commands = [
         f'echo "# {repository_name}" >> README.md',
         'git init',
@@ -23,6 +30,12 @@ def set_up_repository(path: str, repository_name: str) -> None:
 
 
 def set_up_local_folder(repository_name: str) -> None:
+    """
+    Create the local folder which contains the repository.
+
+    Args:
+        repository_name (str): The name of the repository on GitHub.
+    """
     parent_dir = Config.local_path
     path = os.path.join(parent_dir, repository_name)
     os.mkdir(path)
@@ -31,6 +44,12 @@ def set_up_local_folder(repository_name: str) -> None:
 
 
 def cli() -> None:
+    """
+    Set up the command line for the script.
+
+    Returns:
+        parser: The object with the arguments.
+    """
     parser = argparse.ArgumentParser(description='GitHub CLI tool')
     
     parser.add_argument(

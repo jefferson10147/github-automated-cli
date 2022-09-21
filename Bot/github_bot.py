@@ -4,6 +4,12 @@ from Bot.base_page import BasePage
 from Settings.settings import Config
 
 class GitHubBot(BasePage):
+    """
+    Selenium bot's actions and locators inside the GitHub page.
+
+    Args:
+        BasePage: Father class.
+    """
     main_page_url = 'https://github.com/'
 
     #locators
@@ -59,7 +65,7 @@ class GitHubBot(BasePage):
     def create_repository(self) -> None:
         self.wait_for_element_click(*self.create_repository_btn)
 
-    def start_repository(self, repository_name: str) -> bool:
+    def start_repository(self, repository_name: str) -> None:
         print(f'Creating repository called {repository_name}...')
         self.open_main_page()
         self.maximize_window()
