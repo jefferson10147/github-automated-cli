@@ -7,14 +7,19 @@ from Tests.bot_tests import create_repository_test
 
 
 def set_up_repository(path: str, repository_name: str) -> None:
+    initial_git_commands = [
+        f'echo "# {repository_name}" >> README.md',
+        'git init',
+        'git add README.md',
+        'git commit -m "first commit"',
+        f'git branch -M {Config.main_branch_name}', 
+        f'git remote add origin {Config.github_link}{repository_name}.git',
+        f'git push -u origin {Config.main_branch_name}'
+    ]
+
     os.chdir(path)
-    os.system(f'echo "# {repository_name}" >> README.md')
-    os.system('git init')
-    os.system('git add README.md')
-    os.system('git commit -m "first commit"')
-    os.system(f'git branch -M {Config.main_branch_name}')
-    os.system(f'git remote add origin {Config.github_link}{repository_name}.git')
-    os.system(f'git push -u origin {Config.main_branch_name}')
+    for command in initial_git_commands:
+        os.system(command)
 
 
 def set_up_local_folder(repository_name: str) -> None:
