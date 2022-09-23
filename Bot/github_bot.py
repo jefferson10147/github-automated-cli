@@ -24,6 +24,20 @@ class GitHubBot(BasePage):
     private_repository_option = (By.ID, 'repository_visibility_private')
     public_respository_option = (By.ID, 'repository_visibility_public')
     create_repository_btn = (By.CSS_SELECTOR, '.btn-primary.btn')
+    user_icon = (
+        By.CSS_SELECTOR,
+        '.details-overlay.details-reset.js-feature-preview-indicator-container'
+    )
+    your_repositories_drop_down = (By.CSS_SELECTOR, 'a[href="/jefferson10147?tab=repositories"]')
+    delete_respository_btn = (By.XPATH, '//summary[contains(text(), "Delete this repository")]')
+    delete_repository_input = (
+        By.CSS_SELECTOR,
+        'form[action="/jefferson10147/test/settings/delete"] p input[name="verify"]'
+    )
+    delete_repository_confirm_btn = (
+        By.CSS_SELECTOR, 
+        'form[action="/jefferson10147/test/settings/delete"] button.btn-danger.btn.btn-block'
+    )
 
 
     def __init__(self) -> None:
