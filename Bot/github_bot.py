@@ -94,3 +94,9 @@ class GitHubBot(BasePage):
         self.create_repository()
         self.end_test()
         print('The repository has been created')
+
+    def click_user_icon(self) -> None:
+        self.wait_for_element_click(*self.user_icon)
+
+    def click_your_repositories(self) -> None:
+        self.wait_for_element_click(*self.your_repositories_drop_down)
