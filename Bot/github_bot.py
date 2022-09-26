@@ -100,3 +100,8 @@ class GitHubBot(BasePage):
 
     def click_your_repositories(self) -> None:
         self.wait_for_element_click(*self.your_repositories_drop_down)
+
+    def open_repository_page(self, repository_name: str) -> None:
+        repository_link = (
+            By.CSS_SELECTOR, f'a[href="/{self.username}/{repository_name}"]')
+        self.wait_for_element_click(*repository_link)
