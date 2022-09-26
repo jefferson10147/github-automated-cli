@@ -29,6 +29,7 @@ class GitHubBot(BasePage):
         '.details-overlay.details-reset.js-feature-preview-indicator-container'
     )
     your_repositories_drop_down = (By.CSS_SELECTOR, 'a[href="/jefferson10147?tab=repositories"]')
+    settings_btn = (By.ID, 'settings-tab')
     delete_respository_btn = (By.XPATH, '//summary[contains(text(), "Delete this repository")]')
     delete_repository_input = (
         By.CSS_SELECTOR,
@@ -105,3 +106,6 @@ class GitHubBot(BasePage):
         repository_link = (
             By.CSS_SELECTOR, f'a[href="/{self.username}/{repository_name}"]')
         self.wait_for_element_click(*repository_link)
+
+    def click_on_settings(self):
+        self.wait_for_element_click(*self.settings_btn)
