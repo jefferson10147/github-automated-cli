@@ -109,3 +109,6 @@ class GitHubBot(BasePage):
 
     def click_on_settings(self):
         self.wait_for_element_click(*self.settings_btn)
+
+    def click_on_delete_repository_btn(self):
+        self.wait_for_element_click(*self.delete_respository_btn)
