@@ -31,10 +31,6 @@ class GitHubBot(BasePage):
     your_repositories_drop_down = (By.CSS_SELECTOR, 'a[href="/jefferson10147?tab=repositories"]')
     settings_btn = (By.ID, 'settings-tab')
     delete_respository_btn = (By.XPATH, '//summary[contains(text(), "Delete this repository")]')
-    delete_repository_input = (
-        By.CSS_SELECTOR,
-        'form[action="/jefferson10147/test/settings/delete"] p input[name="verify"]'
-    )
     delete_repository_confirm_btn = (
         By.CSS_SELECTOR, 
         'form[action="/jefferson10147/test/settings/delete"] button.btn-danger.btn.btn-block'
@@ -112,3 +108,11 @@ class GitHubBot(BasePage):
 
     def click_on_delete_repository_btn(self):
         self.wait_for_element_click(*self.delete_respository_btn)
+
+    def enter_confirmation_input(self, repository_name):
+        confirmation_input = f'{self.username}/{repository_name}'
+        delete_repository_input = (
+            By.CSS_SELECTOR,
+            f'form[action="/{confirmation_input}/settings/delete"] p input[name="verify"]'
+        )
+        self.input_text(confirmation_input, *delete_repository_input)
