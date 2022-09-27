@@ -96,6 +96,7 @@ class GitHubBot(BasePage):
             f'form[action="/{confirmation_input}/settings/delete"] p input[name="verify"]'
         )
         self.input_text(confirmation_input, *delete_repository_input)
+        self.click_on_delete_repository_confirm_btn(confirmation_input)
 
     def click_on_delete_repository_confirm_btn(self, confirmation_input):
         delete_repository_confirm_btn = (
@@ -119,3 +120,19 @@ class GitHubBot(BasePage):
         self.create_repository()
         self.end_test()
         print('The repository has been created')
+
+    def delete_repository(self, repository_name: str) -> None:
+        print(f'Deleting repository called {repository_name}...')
+        self.open_main_page()
+        self.maximize_window()
+        self.click_on_sigin_btn()
+        self.enter_user()
+        self.enter_password()
+        self.submit_sigin_data()
+        self.click_user_icon()
+        self.click_your_repositories()
+        self.open_repository_page(repository_name)
+        self.click_on_settings()
+        self.click_on_delete_repository_btn()
+        self.enter_confirmation_input(repository_name)
+        print('The repository has been deleted')
