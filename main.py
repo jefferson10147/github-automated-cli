@@ -59,6 +59,8 @@ def cli() -> None:
         '-p', '--private', action='store_true', help='Flag to make the repository private')
     parser.add_argument(
         '-l', '--local', action='store_true', help='Flag to set up the local repository')
+    parser.add_argument(
+        '-d', '--delete', action='store_true', help='Delete any specified repository')
 
     return parser.parse_args()
 
@@ -68,13 +70,16 @@ def main():
     args = cli()
 
     repository_name = args.name if args.name else 'test'
+    bot = GitHubBot()
 
     if args.create:
-        bot = GitHubBot()
         bot.create_repository(repository_name)
         
     if args.local: 
         set_up_local_folder(repository_name)
+
+    if args.delete:
+        bot.delete_repository(repository_name)
 
 
 if __name__ == '__main__':
