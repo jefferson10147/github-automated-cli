@@ -3,7 +3,6 @@ import os
 
 from Bot.github_bot import GitHubBot
 from Settings.settings import Config
-from Tests.bot_tests import create_repository_test
 
 
 def set_up_repository(path: str, repository_name: str) -> None:
@@ -66,7 +65,6 @@ def cli() -> None:
 
 
 def main():
-    # create_repository_test()
     args = cli()
 
     repository_name = args.name if args.name else 'test'
