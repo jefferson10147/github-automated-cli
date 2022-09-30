@@ -5,6 +5,9 @@ from Bot.github_bot import GitHubBot
 from Settings.settings import Config
 
 
+VERSION = "1.0"
+
+
 def set_up_repository(path: str, repository_name: str) -> None:
     """
     Initialized the git repository into the local folder.
@@ -49,7 +52,7 @@ def cli() -> None:
     Returns:
         parser: The object with the arguments.
     """
-    parser = argparse.ArgumentParser(description='GitHub CLI tool')
+    parser = argparse.ArgumentParser(description=f'GitHub CLI v{VERSION}')
     
     parser.add_argument(
         '-c', '--create', action='store_true', help='Creates a repository')
