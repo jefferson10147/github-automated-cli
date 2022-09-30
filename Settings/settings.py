@@ -8,6 +8,6 @@ class Config:
     username = config('USERNAME')
     password = config('PASSWORD')
     driver_path = './chromedriver'
-    local_path = '/Users/jeffersonmontilla/Documents'
+    local_path = './'
     github_link = f'https://github.com/{username}/'
     main_branch_name = 'master'
