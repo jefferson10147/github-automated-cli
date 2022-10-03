@@ -6,9 +6,7 @@
 <table>
     <tr>
         <td>
-            You may manage your GitHub account using this CLI by doing actions like creating a new repository on GitHub and setting up the repository on your local machine. In the same way, you can do other actions like delete the repository and update some settings of it.
-
-            This tool uses Selenium with Python, and Chrome to make the automated task.
+            You may manage your GitHub account using this CLI by doing actions like creating a new repository on GitHub and setting up the repository on your local machine. In the same way, you can do other actions like delete the repository and update some settings of it. This tool uses Selenium with Python, and Chrome to make the automated task.
         </td>
     </tr>
 </table>
