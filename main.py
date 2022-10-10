@@ -74,7 +74,7 @@ def main():
     bot = GitHubBot()
 
     if args.create:
-        bot.create_repository(repository_name)
+        bot.start_repository(repository_name)
         
     if args.local: 
         set_up_local_folder(repository_name)
