@@ -1,4 +1,4 @@
-# github automated cli
+# GitHub Automated Cli
 ## ![Python_logo_Selenium](https://i.ibb.co/p22K38X/selenium-with-python.png)
 
 ## Automation App Using Python and Selenium
