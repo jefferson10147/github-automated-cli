@@ -45,7 +45,7 @@ def set_up_local_folder(repository_name: str) -> None:
     set_up_repository(path, repository_name)
 
 
-def cli() -> None:
+def cli() -> argparse.Namespace:
     """
     Set up the command line for the script.
 
